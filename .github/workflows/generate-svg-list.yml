@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # Add this line to enable manual triggering
 
 jobs:
   generate-svg-list:
@@ -19,6 +20,7 @@ jobs:
 
       - name: Convert list to JSON
         run: |
+          sudo apt-get install -y jq
           jq -R -s -c 'split("\n") | map(select(. != ""))' svg-list.txt > public/svg-files.json
 
       - name: Commit and push changes
@@ -30,3 +32,4 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
