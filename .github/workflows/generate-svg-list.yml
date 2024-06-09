@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Add this line to enable manual triggering
+  workflow_dispatch: # Enable manual triggering
 
 jobs:
   generate-svg-list:
@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Update to the latest version
 
       - name: List SVG files
         run: |
@@ -32,4 +32,5 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
