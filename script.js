@@ -9,7 +9,7 @@ function loadSvgFiles(jsonPath) {
             const container = document.getElementById("svgContainer");
             svgFiles.forEach(file => {
                 const xhr = new XMLHttpRequest();
-                xhr.open("GET", `svgs/${file}`, true);
+                xhr.open("GET", `${file}`, true);
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         const svgElement = document.createElement("div");
