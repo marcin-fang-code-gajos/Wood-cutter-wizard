@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Update to the latest version
+        uses: actions/checkout@v3
 
       - name: List SVG files
         run: |
@@ -32,6 +32,3 @@ jobs:
           git add svg-list.txt public/svg-files.json
           git commit -m "Update SVG files list"
           git push
-
-
-
